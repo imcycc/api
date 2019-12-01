@@ -21,6 +21,7 @@
     "koa-jwt": "^3.6.0",
     "koa-router": "^7.4.0",
     "koa-static2": "^0.1.8",
+    "mongoose": "^5.7.13",
     "nodemailer": "^6.3.0",
     "promise-mysql": "^4.1.0",
     "sequelize": "^5.18.4"

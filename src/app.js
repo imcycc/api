@@ -11,6 +11,7 @@ import ErrorRoutes from './routes/error-routes'
 import jwt from 'koa-jwt'
 import fs from 'fs'
 // import PluginLoader from './lib/PluginLoader'
+import './lib/mongoose'  // 链接数据库
 
 const app = new Koa2()
 const env = process.env.NODE_ENV || 'development' // Current mode
