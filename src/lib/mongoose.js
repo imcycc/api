@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 import { DB as DBConfig } from '../config'
 
-mongoose.connect('mongodb://' + DBConfig.username + ':' + DBConfig.password + '@' + DBConfig.host + ':' + DBConfig.port + '/' + DBConfig.database);
+mongoose.connect('mongodb://' + DBConfig.username + ':' + DBConfig.password + '@' + DBConfig.host + ':' + DBConfig.port + '/' + DBConfig.database + '?authSource=admin');
 // 连接成功操作
 mongoose.connection.on("connected", function () {
   console.log("MongoDB connected success.")
