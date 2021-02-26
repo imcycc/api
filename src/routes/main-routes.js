@@ -4,14 +4,20 @@ import controllers from '../controllers'
 const router = new KoaRouter()
 
 export default router
-  .get('/public/api/tadpole-ranking', controllers.api.GetTadpoleRanking)
-  .post('/public/api/tadpole-ranking', controllers.api.PostTadpoleRanking)
-  // .get('/public/get', function (ctx, next) {
-  //   ctx.body = '禁止访问！'
-  // }) // 以/public开头则不经过权限认证
   // .all('/upload', controllers.upload)
-  // .get('/public/api/:name', controllers.api.Get)
-  // .post('/api/:name', controllers.api.Post)
-  // .put('/api/:name', controllers.api.Put)
-  // .del('/api/:name', controllers.api.Delete)
-  // .post('/auth/:action', controllers.auth.Post)
+
+  .post('/auth/login', controllers.auth.Login)
+  .get('/auth/check', controllers.auth.Check)
+
+  // 游戏
+  .get('/public/api/tadpole-ranking', controllers.apiGame.FindTadpoleRanking)
+  .post('/public/api/tadpole-ranking', controllers.apiGame.CreateTadpoleRanking)
+
+  // 博客
+  .post('/api/article', controllers.apiBlog.CreateArticle)
+  .del('/api/article', controllers.apiBlog.DeleteArticle)
+  .put('/api/article', controllers.apiBlog.UpdateArticle)
+  .get('/api/article', controllers.apiBlog.FindArticle)
+  .get('/api/articles', controllers.apiBlog.FindAllArticle)
+
+

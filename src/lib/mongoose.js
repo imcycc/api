@@ -1,18 +1,23 @@
-var mongoose = require('mongoose');
-import { DB as DBConfig } from '../config'
+import mongoose from 'mongoose'
+import { DB_GAME, DB_BLOG } from '../config'
 
-mongoose.connect('mongodb://' + DBConfig.username + ':' + DBConfig.password + '@' + DBConfig.host + ':' + DBConfig.port + '/' + DBConfig.database + '?authSource=admin');
-// 连接成功操作
-mongoose.connection.on("connected", function () {
-  console.log("MongoDB connected success.")
-})
+mongoose.set('useFindAndModify', false);
 
-// 连接失败操作
-mongoose.connection.on("error", function () {
-  console.log("MongoDB connected fail.")
-})
+export var dbgame = mongoose.createConnection(`mongodb://${DB_GAME.username}:${DB_GAME.password}@${DB_GAME.host}:${DB_GAME.port}/${DB_GAME.database}?authSource=admin`);
+export var dbblog = mongoose.createConnection(`mongodb://${DB_BLOG.username}:${DB_BLOG.password}@${DB_BLOG.host}:${DB_BLOG.port}/${DB_BLOG.database}?authSource=admin`);
 
-// 连接断开操作
-mongoose.connection.on("disconnected", function () {
-  console.log("MongoDB connected disconnected.")
-})
+dbgame.on('connected', function (err) {
+  if (err) {
+    console.log('连接game数据库失败：' + err);
+  } else {
+    console.log('连接game数据库成功！');
+  }
+});
+
+dbblog.on('connected', function (err) {
+  if (err) {
+    console.log('连接blog数据库失败：' + err);
+  } else {
+    console.log('连接blog数据库成功！');
+  }
+});

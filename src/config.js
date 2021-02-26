@@ -14,12 +14,21 @@ export const System = {
   db_type: 'mongodb' // 数据库类型
 }
 
-export const DB = {
+export const DB_GAME = {
   host: '132.232.16.28', // 服务器地址
   port: 27017, // 数据库端口号
   username: 'game', // 数据库用户名
   password: 'game123456', // 数据库密码
   database: 'game', // 数据库名称
+  prefix: 'api_' // 默认"api_"
+}
+
+export const DB_BLOG = {
+  host: '132.232.16.28', // 服务器地址
+  port: 27017, // 数据库端口号
+  username: 'blog', // 数据库用户名
+  password: 'blog123456', // 数据库密码
+  database: 'blog', // 数据库名称
   prefix: 'api_' // 默认"api_"
 }
 
