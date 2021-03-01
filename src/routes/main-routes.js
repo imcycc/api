@@ -5,7 +5,6 @@ const router = new KoaRouter()
 
 export default router
   // .all('/upload', controllers.upload)
-  .options('*', controllers.basic.Options)
 
   .post('/auth/login', controllers.auth.Login)
   .get('/auth/check', controllers.auth.Check)
