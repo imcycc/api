@@ -35,11 +35,11 @@ export const Check = (ctx, next) => {
 export const Login = (ctx, next) => {
   let { account, pwd } = ctx.request.body;
 
-  if (!(account == 'admin' && pwd == 'admin')) {
-    ctx.body = ResponseUtils.fail('PARAMETER_ERROR')
-    next()
-    return
-  }
+  // if (!(account == 'admin' && pwd == 'admin')) {
+  //   ctx.body = ResponseUtils.fail('PARAMETER_ERROR')
+  //   next()
+  //   return
+  // }
 
   let token = jwt.sign({
     userInfo: {

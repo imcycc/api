@@ -14,10 +14,13 @@ export default router
   .post('/public/api/tadpole-ranking', controllers.apiGame.CreateTadpoleRanking)
 
   // 博客
-  .post('/api/article', controllers.apiBlog.CreateArticle)
-  .del('/api/article', controllers.apiBlog.DeleteArticle)
-  .put('/api/article', controllers.apiBlog.UpdateArticle)
-  .get('/api/article', controllers.apiBlog.FindArticle)
-  .get('/api/articles', controllers.apiBlog.FindAllArticle)
+  .get('/public/articles', controllers.apiBlog.FindAllArticle)
+  .get('/public/article', controllers.apiBlog.FindArticle)
+  .get('/articles', controllers.apiBlog.FindAllArticle)
+  .get('/article', controllers.apiBlog.FindArticle)
+  .post('/article', controllers.apiBlog.CreateArticle)
+  .del('/article', controllers.apiBlog.DeleteArticle)
+  .put('/article', controllers.apiBlog.UpdateArticle)
+
 
 

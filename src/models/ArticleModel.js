@@ -9,12 +9,11 @@ var produtSchema = new Schema({
     type: String,
     required: true,
   },
-  content: {
+  markdown: {
     type: String,
     required: true,
   },
   tags: [String],
-  categorys: [String],
 }, { versionKey: false })
 
 module.exports = dbblog.model('article', produtSchema, 'article'); 
