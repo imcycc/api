@@ -80,7 +80,18 @@ export const FindArticle = async (ctx, next) => {
 // 查找文章列表
 export const FindAllArticle = async (ctx, next) => {
   try {
-    let res = await ArticleModel.find({ delete_at: null });
+    let { page, page_size, tag_id } = ctx.query;
+
+    let queryParams = { delete_at: null }
+
+    if (tag_id) {
+      queryParams.tag_ids = { $elemMatch: { $eq: tag_id } }
+    }
+
+    let res = await ArticleModel
+      .find(queryParams, { markdown: 0 })
+      .sort({ create_at: -1 })
+
     res = res.map(d => d.toObject())
 
     if (res && res.length) {
